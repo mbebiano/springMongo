@@ -14,6 +14,7 @@ public class UserService {
 	// instaciação do repósitorio
 	@Autowired
 	private UserRepository repo;
+	
 	public List<User> findAll(){
 		return repo.findAll();
 	}

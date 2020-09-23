@@ -1,7 +1,5 @@
 package br.com.ntendencia.resources;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +13,7 @@ import br.com.ntendencia.services.UserService;
 
 //caminho do endpoint
 @RestController
-@RequestMapping (value="users")
+@RequestMapping(value="/users")
 public class UserResource {
 	
 	@Autowired
