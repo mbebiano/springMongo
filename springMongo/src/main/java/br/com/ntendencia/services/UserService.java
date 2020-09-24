@@ -22,7 +22,7 @@ public class UserService {
 	}
 	
 	public User findById(String id){
-		
+		/*
 		Optional<User> optUser = repo.findById(id);
 		
 		if (optUser == null) {
@@ -30,6 +30,9 @@ public class UserService {
 		}
 		//obtençao da entidade user através do objeto optional para entity
 		User user = optUser.get();
-		return user;
+		return user;*/
+		
+		Optional<User> obj= repo.findById(id);
+		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
 	}
 }
