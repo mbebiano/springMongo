@@ -23,18 +23,24 @@ public class UserService {
 	}
 	
 	public User findById(String id){
-		/*
+		
 		Optional<User> optUser = repo.findById(id);
 		
-		if (optUser == null) {
+		
+		if (optUser.isEmpty()) {
+			System.out.println("Entrou");
 			throw new ObjectNotFoundException("Objeto não encontrado");
+		}
+		else {
+			System.out.println("N entrou");
+			System.out.println(optUser);
 		}
 		//obtençao da entidade user através do objeto optional para entity
 		User user = optUser.get();
-		return user;*/
+		return user;
 		
-		Optional<User> obj= repo.findById(id);
-		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
+		/*Optional<User> obj= repo.findById(id);
+		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));*/
 	}
 	public User insert(User obj) {
 		return repo.insert(obj);
