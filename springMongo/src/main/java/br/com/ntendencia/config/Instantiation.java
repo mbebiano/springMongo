@@ -43,6 +43,8 @@ public class Instantiation implements CommandLineRunner {
 		//salva os usuários para que adquiram id proprio userRepository.saveAll(Arrays.asList(maria, alex, bob));
 		postReposiroty.saveAll(Arrays.asList(post1, post2));
 		
+		maria.getPosts().addAll(Arrays.asList(post1, post2));
+		userRepository.save(maria);
 	}
 
 }
