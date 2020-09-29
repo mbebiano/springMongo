@@ -3,6 +3,7 @@ package br.com.ntendencia.repository;
 import java.util.List;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import br.com.ntendencia.domain.Post;
@@ -12,8 +13,12 @@ import br.com.ntendencia.domain.Post;
 @Repository
 public interface PostRepository extends MongoRepository<Post, String>  {
 	
+	// ?0 especifica que deseja o primeiro parametro que vier no metodo
+	@Query("{ 'title': { $regex: ?0, $options: 'i' } }")
+	List<Post> searchTitle(String text);
+	
 	// query method, busca titutlo que contain o atributo passado
 	//adição da palavra reservada IgnoreCase
 	List<Post> findByTitleContainingIgnoreCase(String text);
-
+	
 }
